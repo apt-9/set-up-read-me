@@ -43,7 +43,7 @@ const THEME_TEMPLATE = `## Available Themes
 With inbuilt themes, you can customize the look of the card without doing any manual customization.
 Use \`?theme=THEME_NAME\` parameter like so :-
 \`\`\`md
-![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=apt-9&theme=dark&show_icons=true)
+![apt9's GitHub stats](https://github-readme-stats.vercel.app/api?username=apt-9&theme=dark&show_icons=true)
 \`\`\`
 ## Stats
 > These themes work both for the Stats Card and Repo Card.
