@@ -95,14 +95,14 @@ const wakaTimeData = {
     total_seconds: 80473.135716,
     total_seconds_including_other_language: 81643.570077,
     user_id: "random hash",
-    username: "anuraghazra",
+    username: "apt9",
     writes_only: false,
   },
 };
 
 describe("Wakatime fetcher", () => {
   it("should fetch correct wakatime data", async () => {
-    const username = "anuraghazra";
+    const username = "apt9";
     mock
       .onGet(
         `https://wakatime.com/api/v1/users/${username}/stats/?is_including_today=true`,
@@ -197,7 +197,7 @@ describe("Wakatime fetcher", () => {
         "total_seconds": 80473.135716,
         "total_seconds_including_other_language": 81643.570077,
         "user_id": "random hash",
-        "username": "anuraghazra",
+        "username": "apt9",
         "writes_only": false,
       }
     `);
