@@ -63,8 +63,8 @@ const fetcher = (variables, token) => {
   );
 };
 
-// https://github.com/anuraghazra/github-readme-stats/issues/92#issuecomment-661026467
-// https://github.com/anuraghazra/github-readme-stats/pull/211/
+// https://github.com/apt-9/github-readme-stats/issues/92#issuecomment-661026467
+// https://github.com/apt-9/github-readme-stats/pull/211/
 const totalCommitsFetcher = async (username) => {
   if (!githubUsernameRegex.test(username)) {
     logger.log("Invalid username");
