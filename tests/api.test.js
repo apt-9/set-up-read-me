@@ -7,7 +7,7 @@ const { renderError, CONSTANTS } = require("../src/common/utils");
 const calculateRank = require("../src/calculateRank");
 
 const stats = {
-  name: "Anurag Hazra",
+  name: "apt9",
   totalStars: 100,
   totalCommits: 200,
   totalIssues: 300,
@@ -62,7 +62,7 @@ const mock = new MockAdapter(axios);
 const faker = (query, data) => {
   const req = {
     query: {
-      username: "anuraghazra",
+      username: "apt9",
       ...query,
     },
   };
@@ -106,7 +106,7 @@ describe("Test /api/", () => {
   it("should get the query options", async () => {
     const { req, res } = faker(
       {
-        username: "anuraghazra",
+        username: "apt9",
         hide: "issues,prs,contribs",
         show_icons: true,
         hide_border: true,
@@ -194,7 +194,7 @@ describe("Test /api/", () => {
   it("should add private contributions", async () => {
     const { req, res } = faker(
       {
-        username: "anuraghazra",
+        username: "apt9",
         count_private: true,
       },
       data,
