@@ -7,7 +7,7 @@ const calculateRank = require("../src/calculateRank");
 const data = {
   data: {
     user: {
-      name: "Anurag Hazra",
+      name: "apt9",
       repositoriesContributedTo: { totalCount: 61 },
       contributionsCollection: {
         totalCommitContributions: 100,
@@ -52,7 +52,7 @@ describe("Test fetchStats", () => {
   it("should fetch correct stats", async () => {
     mock.onPost("https://api.github.com/graphql").reply(200, data);
 
-    let stats = await fetchStats("anuraghazra");
+    let stats = await fetchStats("apt9");
     const rank = calculateRank({
       totalCommits: 100,
       totalRepos: 5,
@@ -65,7 +65,7 @@ describe("Test fetchStats", () => {
 
     expect(stats).toStrictEqual({
       contributedTo: 61,
-      name: "Anurag Hazra",
+      name: "apt9",
       totalCommits: 100,
       totalIssues: 200,
       totalPRs: 300,
@@ -77,7 +77,7 @@ describe("Test fetchStats", () => {
   it("should throw error", async () => {
     mock.onPost("https://api.github.com/graphql").reply(200, error);
 
-    await expect(fetchStats("anuraghazra")).rejects.toThrow(
+    await expect(fetchStats("apt9")).rejects.toThrow(
       "Could not resolve to a User with the login of 'noname'.",
     );
   });
@@ -85,7 +85,7 @@ describe("Test fetchStats", () => {
   it("should fetch and add private contributions", async () => {
     mock.onPost("https://api.github.com/graphql").reply(200, data);
 
-    let stats = await fetchStats("anuraghazra", true);
+    let stats = await fetchStats("apt9", true);
     const rank = calculateRank({
       totalCommits: 150,
       totalRepos: 5,
@@ -98,7 +98,7 @@ describe("Test fetchStats", () => {
 
     expect(stats).toStrictEqual({
       contributedTo: 61,
-      name: "Anurag Hazra",
+      name: "apt9",
       totalCommits: 150,
       totalIssues: 200,
       totalPRs: 300,
@@ -110,10 +110,10 @@ describe("Test fetchStats", () => {
   it("should fetch total commits", async () => {
     mock.onPost("https://api.github.com/graphql").reply(200, data);
     mock
-      .onGet("https://api.github.com/search/commits?q=author:anuraghazra")
+      .onGet("https://api.github.com/search/commits?q=author:apt9")
       .reply(200, { total_count: 1000 });
 
-    let stats = await fetchStats("anuraghazra", true, true);
+    let stats = await fetchStats("apt9", true, true);
     const rank = calculateRank({
       totalCommits: 1050,
       totalRepos: 5,
@@ -126,7 +126,7 @@ describe("Test fetchStats", () => {
 
     expect(stats).toStrictEqual({
       contributedTo: 61,
-      name: "Anurag Hazra",
+      name: "apt9",
       totalCommits: 1050,
       totalIssues: 200,
       totalPRs: 300,
